@@ -1,0 +1,162 @@
+% ----------------------------------------------------------------
+% Настройка внешнего вида
+
+%%% Шрифты
+
+% если закомментировать всё — консервативная гарнитура Computer Modern
+\usepackage{paratype} % профессиональные свободные шрифты
+%\usepackage {droid}  % неплохие свободные шрифты от Google
+%\usepackage{mathptmx}
+%\usepackage {mmasym}
+%\usepackage {psfonts}
+%\usepackage{lmodern}
+%var1: lh additions for bold concrete fonts
+%\usepackage{lh-t2axccr}
+%var2: the package below could be covered with fd-files
+%\usepackage{lh-t2accr}
+%\usepackage {pscyr}
+
+% Геометрия текста
+
+\usepackage{setspace}       % Межстрочный интервал
+\onehalfspacing
+
+\newlength\MyIndent
+\setlength\MyIndent{1.25cm}
+\setlength{\parindent}{\MyIndent} % Абзацный отступ
+\frenchspacing            % Отключение лишних отступов после точек
+\KOMAoptions{DIV=calc}    % Пересчёт геометрии
+
+                            % Консервативный вариант:
+%\usepackage                % ручное задание геометрии
+%[%                         % (не рекомендуется в проф. типографии)
+%  margin = 2.5cm,
+  %includefoot,
+  %footskip = 1cm
+%] %
+%  {geometry}
+
+%%% Заголовки
+
+\KOMAoptions{%
+    %numbers=endperiod% если хочется точек после номеров разделов
+}
+
+\ifthenelse{\equal{\theworktype}{2}}{%
+\KOMAoptions{%
+    headings=normal,   % размеры заголовков поменьше стандартных
+    chapterprefix=true,% Печатать слово Глава в магистерской
+    appendixprefix=true% Печатать слово Приложение
+}
+}
+
+% шрифт для оформления глав и названия содержания
+\newcommand{\SuperFont}{\Large\sffamily\bfseries}
+
+% Заголовок главы
+\ifthenelse{\value{worktype} > 1}{%
+\renewcommand{\SuperFont}{\Large\normalfont\sffamily}
+\newcommand{\CentSuperFont}{\centering\SuperFont}
+\usepackage{fncychap}
+\ChNameVar{\SuperFont}
+\ChNumVar{\CentSuperFont}
+\ChTitleVar{\CentSuperFont}
+\ChNameUpperCase
+\ChTitleUpperCase
+}
+
+% Заголовок (под)раздела с абзацного отступа
+\addtokomafont{sectioning}{\hspace{\MyIndent}}
+
+\renewcommand*{\captionformat}{~---~}
+\renewcommand*{\figureformat}{Рисунок~\thefigure\autodot}
+
+%%% Оглавление
+\usepackage{tocloft}
+
+% шрифт и положение заголовка
+\ifthenelse{\value{worktype} > 1}{%
+\renewcommand{\cfttoctitlefont}{\hfil\SuperFont\MakeUppercase}
+}{
+\renewcommand{\cfttoctitlefont}{\hfil\SuperFont}
+}
+
+% слово Глава
+\usepackage{calc}
+\ifthenelse{\value{worktype} > 1}{%
+\renewcommand{\cftchappresnum}{Глава }
+\addtolength{\cftchapnumwidth}{\widthof{Глава }}
+}
+
+% Очищаем оформление названий старших элементов в оглавлении
+\ifthenelse{\value{worktype} > 1}{%
+\renewcommand{\cftchapfont}{}
+\renewcommand{\cftchappagefont}{}
+}{
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsecpagefont}{}
+}
+
+%%% Списки (enumitem)
+
+\usepackage {enumitem}      % Списки с настройкой отступов
+\setlist %
+{ %
+  leftmargin = \parindent, itemsep=.5ex, topsep=.4ex
+} %
+
+% По ГОСТу нумерация должны быть буквами: а, б...
+%\makeatletter
+%    \AddEnumerateCounter{\asbuk}{\@asbuk}{м)}
+%\makeatother
+%\renewcommand{\labelenumi}{\asbuk{enumi})}
+%\renewcommand{\labelenumii}{\arabic{enumii})}
+
+%%% Таблицы: выбрать более подходящие
+
+\usepackage{booktabs} % считаются наиболее профессионально выполненными
+%\usepackage{ltablex}
+%\newcolumntype {L} {>{---}l}
+
+%%% Библиография
+
+\usepackage{csquotes}        % Оформление списка литературы
+\usepackage[
+  backend=biber,
+  hyperref=auto,
+  language=auto,
+  citestyle=gost-numeric,
+  bibstyle=gost-numeric,
+]{biblatex}
+\addbibresource{biblio.bib} % Файл с лит.источниками
+
+% Настройка величины отступа в списке
+\ifthenelse{\value{worktype} < 2}{%
+\defbibenvironment{bibliography}
+  {\list
+     {\printtext[labelnumberwidth]{%
+    \printfield{prefixnumber}%
+    \printfield{labelnumber}}}
+     {\setlength{\labelwidth}{\labelnumberwidth}%
+      \setlength{\leftmargin}{\labelwidth}%
+      \setlength{\labelsep}{\dimexpr\MyIndent-\labelwidth\relax}% <----- default is \biblabelsep
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}%
+      \renewcommand*{\makelabel}[1]{\hss##1}}
+  {\endlist}
+  {\item}
+}{}
+
+% ----------------------------------------------------------------
+% Настройка переносов и разрывов страниц
+
+\binoppenalty = 10000      % Запрет переносов строк в формулах
+\relpenalty = 10000        %
+
+\sloppy                    % Не выходить за границы бокса
+%\tolerance = 400          % или более точно
+\clubpenalty = 10000       % Запрет разрывов страниц после первой
+\widowpenalty = 10000      % и перед предпоследней строкой абзаца
+
+% ----------------------------

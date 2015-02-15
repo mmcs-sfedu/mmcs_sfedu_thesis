@@ -1,0 +1,146 @@
+% В этом файле следует писать текст работы, разбивая его на
+% разделы (section), подразделы (subsection) и, если нужно,
+% главы (chapter).
+
+% Предварительно следует указать необходимую информацию
+% в файле SETUP.tex
+
+\input{preamble.tex}
+
+\begin{document}
+
+\Intro
+
+Здесь вам нужно писать введение. Некоторые часто используемые команды приведены в качестве примера ниже (и варианты — в комментариях).
+
+Your introduction goes here! Some examples of commonly used commands and features are listed below, to help you get started. If you have a question, please use the help menu (``?'') on the top bar to search for help or ask us a question.
+
+% Если typeOfWork в SETUP.tex задан как 2 или 3, то начинать
+% надо не с section (раздел), а с главы (chapter)
+\section{Несколько примеров в~\LaTeX{}}
+\label{sec:examples}
+
+\subsection{Как вставлять листинги}
+
+Есть два способа. Первый красивый, но в нём не допускается
+кириллица (у вас может встречаться в комментариях и
+печатаемых сообщениях).
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "Hello, world" << endl;
+    system("pause");
+    return 0;
+}
+\end{lstlisting}
+
+Второй не такой красивый, но без ограничений.
+\begin{Verb}
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "Привет, мир" << endl;
+}
+\end{Verb}
+
+Можно использовать первый для вставки небольших фрагментов внутри текста, а второй: для вставки полного
+кода в приложении, если таковое предполагается.
+
+\subsection{Как вставлять рисунки}
+
+Then use the includegraphics command to include it in your document. Use the figure environment and the caption command to add a number and a caption to your figure. See the code for Figure \ref{fig:frog} in this section for an example.
+
+\begin{figure}
+\centering
+Здесь могла быть ваша лягушка. %\includegraphics[width=0.3\textwidth]{img/frog.jpg}
+\caption{\label{fig:frog}Лягушка была загружена в overleaf через меню files. Подпись~--- снизу.}
+\end{figure}
+
+Использовать внешние файлы (например, рисунки) можно и на \href{http://overleaf.com}{overleaf.com}: ищите кнопочку upload. Обратите внимание, как оформляется гиперссылка в тексте.
+
+\subsection{Как оформить таблицу}
+
+Для таблиц обычно используются окружения table и tabular --- см. Таблицу~\ref{tab:widgets}. Внутри окружения tabular используются специальные команды пакета booktabs — они очень красивые; самое главное: использование вертикальных линеек считается моветоном.
+
+\begin{table}
+\centering
+\caption{\label{tab:widgets}Подпись к таблице --- сверху.}
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Item} \\
+\cmidrule(r){1-2}
+Животное  & Описание    & Цена (\$) \\
+\midrule
+Gnat      & per gram    & 13.65      \\
+          & each        & 0.01       \\
+Gnu       & stuffed     & 92.50      \\
+Emu       & stuffed     & 33.33      \\
+Armadillo & frozen      & 8.99       \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Как набирать формулы}
+
+\LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
+$$S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i$$
+denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+
+\subsection{Как оформлять списки}
+
+Нумерованные списки (окружение enumerate, команды item)…
+
+\begin{enumerate}
+  \item Like this,
+  \item and like this.
+\end{enumerate}
+
+\dots маркированные списки \dots
+
+\begin{itemize}
+  \item Like this,
+  \item and like this.
+\end{itemize}
+
+\dots списки-описания \dots
+
+\begin{description}
+  \item[Word] Definition
+  \item[Concept] Explanation
+  \item[Idea] Text
+\end{description}
+
+\Conc
+
+We hope you find \LaTeX\ useful, and please let us know if you have any feedback.
+
+Помните, что на все пункты списка литературы должны быть ссылки. \LaTeX\ просто не добавит информацию об издании из bib"/файла, если на это издание нет ссылки в тексте. Часто студенты используют в работе  электронные ресурсы: в этом нет ничего зазорного при одном условии: при каждом заимствовании следует ставить соответствующую ссылку. В качестве примера приведём ссылку на сайт нашего института~\autocite{mmcs}.
+
+Для дальнейшего изучения \LaTeX\ рекомендуем книгу Львовского~\autocite{Lvo2003}: она хорошо написана, хотя и несколько устарела.
+Обычно стоит искать подсказки на
+\href{http://tex.stackexchange.com/}{tex.stackexchange.com}, а также
+читать документацию по установленным пакетам с помощью
+команды
+\begin{Verb}
+texdoc имя_пакета
+\end{Verb}
+или на \href{http://ctan.org/}{ctan.org}.
+
+% Печать списка литературы (библиографии)
+\printbibliography[heading=bibintoc%
+    %,title=Библиография % если хочется это слово
+]
+% Файл со списком литературы: biblio.bib
+% Подробно по оформлению библиографии:
+% см. документацию к пакету biblatex-gost
+% http://ctan.mirrorcatalogs.com/macros/latex/exptl/biblatex-contrib/biblatex-gost/doc/biblatex-gost.pdf
+% и огромное количество примеров там же:
+% http://mirror.macomnet.net/pub/CTAN/macros/latex/contrib/biblatex-contrib/biblatex-gost/doc/biblatex-gost-examples.pdf
+
+\end{document}

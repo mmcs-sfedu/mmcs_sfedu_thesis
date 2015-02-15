@@ -1,0 +1,110 @@
+% Макросы настройки титульной страницы
+% В этот файл не предполагается вносить изменения
+
+%\usepackage {showframe}
+
+% Вертикальные отступы на титульной странице
+\newcommand{\vgap}{\vspace{10pt}}
+
+% Помещение города и даты в нижний колонтитул
+\usepackage{scrlayer}
+\DeclareNewLayer[
+  foot,
+  foreground,
+  contents={%
+    \raisebox{\dp\strutbox}[\layerheight][0pt]{%
+      \parbox[b]{\layerwidth}{\centering Ростов-на-Дону\\ \thedate%
+       \\\mbox{}
+       }}%
+  }
+]{titlepage.foot.fg}
+\DeclareNewPageStyleByLayers{titlepage}{titlepage.foot.fg}
+
+
+\AtBeginDocument %
+{ %
+  %
+  \begin{titlepage}
+  %
+    \thispagestyle{titlepage}
+
+    {\centering
+    %
+    \MakeTextUppercase {МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РФ}
+
+    \vgap
+
+    Федеральное государственное автономное образовательное\\
+    учреждение высшего профессионального образования\\
+    \MakeTextUppercase {Южный федеральный университет}
+
+    \vgap
+
+	Институт математики, механики и компьютерных наук
+    им.~И.\,И.~Воровича
+
+    \vgap
+
+    \direction
+
+    \ifthenelse{\boolean{needchair}}{
+    \vgap
+
+    \thechair}{}
+
+    \vspace* {\fill}
+
+    \ifthenelse{\value{worktype} = 2}{%
+    \me
+
+    \vgap}{}
+
+    \MakeTextUppercase{\thetitle}
+
+    \ifthenelse{\value{worktype} = 2}{%
+     \vgap
+
+    Магистерская диссертация}{}
+    \ifthenelse{\value{worktype} = 0}{
+     \vgap
+
+    Курсовая работа
+    }{}%
+
+    \vspace {\fill}
+
+    \begin{flushright}
+    \ifthenelse{\value{worktype} = 1}{
+    Выпускная квалификационная работа\\
+    на степень бакалавра
+   }{}%
+    \ifthenelse{\value{worktype} = 1 \OR \value{worktype} = 0}{
+    \bystudent\\
+    \byme
+    }{}
+
+    \vgap
+
+    Научный руководитель:\\
+    \supervisor\\
+    \ifthenelse{\value{worktype} = 2}{%
+    Рецензент:\\
+    должность, ученая степень
+    И. О. Фамилия
+    }{}
+	\end{flushright}
+
+  	\vspace {\fill}
+
+	%Ростов-на-Дону
+
+    %\thedate
+
+  }\end{titlepage}
+  %
+  %
+  \tableofcontents
+  %
+  \clearpage
+} %
+

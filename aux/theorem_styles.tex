@@ -1,0 +1,49 @@
+% Оформление теорем (ntheorem)
+
+\usepackage [thmmarks, amsmath] {ntheorem}
+\theorempreskipamount 0.6cm
+
+\theoremstyle {plain} %
+\theoremheaderfont {\normalfont \bfseries} %
+\theorembodyfont {\slshape} %
+\theoremsymbol {\ensuremath {_\Box}} %
+\theoremseparator {:} %
+\newtheorem {mystatement} {Утверждение} [section] %
+\newtheorem {mylemma} {Лемма} [section] %
+\newtheorem {mycorollary} {Следствие} [section] %
+
+\theoremstyle {nonumberplain} %
+\theoremseparator {.} %
+\theoremsymbol {\ensuremath {_\diamondsuit}} %
+\newtheorem {mydefinition} {Определение} %
+
+\theoremstyle {plain} %
+\theoremheaderfont {\normalfont \bfseries} 
+\theorembodyfont {\normalfont} 
+%\theoremsymbol {\ensuremath {_\Box}} %
+\theoremseparator {.} %
+\newtheorem {mytask} {Задача} [section]%
+\renewcommand{\themytask}{\arabic{mytask}}
+
+\theoremheaderfont {\scshape} %
+\theorembodyfont {\upshape} %
+\theoremstyle {nonumberplain} %
+\theoremseparator {} %
+\theoremsymbol {\rule {1ex} {1ex}} %
+\newtheorem {myproof} {Доказательство} %
+
+\theorembodyfont {\upshape} %
+%\theoremindent 0.5cm
+\theoremstyle {nonumberbreak} \theoremseparator {\\} %
+\theoremsymbol {\ensuremath {\ast}} %
+\newtheorem {myexample} {Пример} %
+\newtheorem {myexamples} {Примеры} %
+
+\theoremheaderfont {\itshape} %
+\theorembodyfont {\upshape} %
+\theoremstyle {nonumberplain} %
+\theoremseparator {:} %
+\theoremsymbol {\ensuremath {_\triangle}} %
+\newtheorem {myremark} {Замечание} %
+\theoremstyle {nonumberbreak} %
+\newtheorem {myremarks} {Замечания} %

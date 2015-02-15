@@ -1,0 +1,31 @@
+
+
+% макросы для начала введения и заключения
+\newcommand{\Intro}{\addsec{Введение}}
+\ifthenelse{\value{worktype} > 1}{%
+    \renewcommand{\Intro}{\addchap{Введение}}%
+}
+
+\newcommand{\Conc}{\addsec{Заключение}}
+\ifthenelse{\value{worktype} > 1}{%
+    \renewcommand{\Conc}{\addchap{Заключение}}%
+}
+
+% Правильные значки для нестрогих неравенств и пустого множества
+\renewcommand {\le} {\leqslant}
+\renewcommand {\ge} {\geqslant}
+\renewcommand {\emptyset} {\varnothing}
+
+% N ажурное: натуральные числа
+\newcommand {\N} {\ensuremath{\mathbb N}}
+
+% значок С++ — используйте команду \cpp
+\newcommand{\cpp}{C\nolinebreak\hspace{-.05em}%
+\raisebox{.2ex}{+}\nolinebreak\hspace{-.10em}%
+\raisebox{.2ex}{+}}
+
+% Неразрывный дефис, который допускает перенос внутри слов,
+% типа жёлто-синий: нужно писать жёлто"/синий.
+\makeatletter
+    \defineshorthand[russian]{"/}{\mbox{-}\bbl@allowhyphens}
+\makeatother

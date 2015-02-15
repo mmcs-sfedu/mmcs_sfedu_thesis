@@ -1,0 +1,45 @@
+%% В этот файл не предполагается вносить изменения
+
+\input{SETUP.tex}
+
+\usepackage {amsmath}      % Больше математики
+\usepackage {amssymb}
+\usepackage {textcase}     % Преобразование к верхнему регистру
+\usepackage {indentfirst}  % Красная строка первого абзаца в разделе
+
+\usepackage {fancyvrb}     % Листинги: определяем своё окружение Verb
+\DefineVerbatimEnvironment% с уменьшенным шрифтом
+	{Verb}{Verbatim}
+	{fontsize=\small}
+
+% Вставка рисунков
+\usepackage {ifpdf}        % Проверка, генерируется ли PDF
+\ifpdf
+  %
+  \usepackage [pdftex] {graphicx}
+  %
+  \DeclareGraphicsRule {*} {mps} {*} {}
+  %
+\else
+  %
+  \usepackage [draft] {graphicx}
+  %
+  \DeclareGraphicsRule {*} {eps} {*} {}
+  %
+\fi
+
+% Общее оформление
+\input{aux/appearance.tex}
+
+% Стили для окружений типа Определение, Теорема...
+\input{aux/theorem_styles.tex}
+
+% Титульный лист
+\input{aux/title_macro.tex}
+
+% Команды для использования в тексте работы
+\input{my_macro.tex}
+
+\endinput
+
+% Конец файла
