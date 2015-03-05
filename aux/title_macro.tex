@@ -40,7 +40,7 @@
 
     \vgap
 
-	Институт математики, механики и компьютерных наук
+  Институт математики, механики и компьютерных наук
     им.~И.\,И.~Воровича
 
     \vgap
@@ -74,11 +74,11 @@
     \vspace {\fill}
 
     \begin{flushright}
-    \ifthenelse{\value{worktype} = 1}{
+    \ifthenelse{\value{worktype} = 1 \OR \value{worktype} = 3}{
     Выпускная квалификационная работа\\
     на степень бакалавра
    }{}%
-    \ifthenelse{\value{worktype} = 1 \OR \value{worktype} = 0}{
+    \ifthenelse{\value{worktype} = 1 \OR \value{worktype} = 0 \OR \value{worktype} = 3}{
     \bystudent\\
     \byme
     }{}
@@ -92,11 +92,11 @@
     должность, ученая степень
     И. О. Фамилия
     }{}
-	\end{flushright}
+  \end{flushright}
 
-  	\vspace {\fill}
+    \vspace {\fill}
 
-	%Ростов-на-Дону
+  %Ростов-на-Дону
 
     %\thedate
 
