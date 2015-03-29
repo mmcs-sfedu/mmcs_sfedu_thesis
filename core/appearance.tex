@@ -25,7 +25,10 @@
 \setlength\MyIndent{1.25cm}
 \setlength{\parindent}{\MyIndent} % Абзацный отступ
 \frenchspacing            % Отключение лишних отступов после точек
-\KOMAoptions{DIV=calc}    % Пересчёт геометрии
+\KOMAoptions{%
+    DIV=calc,         % Пересчёт геометрии
+    numbers=endperiod % точки после номеров разделов
+}
 
                             % Консервативный вариант:
 %\usepackage                % ручное задание геометрии
@@ -37,6 +40,8 @@
 %  {geometry}
 
 %%% Заголовки
+
+
 
 \ifthenelse{\equal{\theworktype}{2}}{%
 \KOMAoptions{%
