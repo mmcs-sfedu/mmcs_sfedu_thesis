@@ -45,7 +45,7 @@
 
 \ifthenelse{\equal{\theworktype}{2}}{%
 \KOMAoptions{%
-    numbers=endperiod% точки после номеров разделов
+    numbers=endperiod,% точки после номеров разделов
     headings=normal,   % размеры заголовков поменьше стандартных
     chapterprefix=true,% Печатать слово Глава в магистерской
     appendixprefix=true% Печатать слово Приложение
@@ -71,7 +71,7 @@
 \addtokomafont{sectioning}{\hspace{\MyIndent}}
 
 \renewcommand*{\captionformat}{~---~}
-\renewcommand*{\figureformat}{Рисунок~\thefigure\autodot}
+\renewcommand*{\figureformat}{Рисунок~\thefigure}
 
 %%% Оглавление
 \usepackage{tocloft}
@@ -101,10 +101,10 @@
 
 \ifthenelse{\value{worktype} > 1}{%
     \renewcommand{\cftchapaftersnum}{.}
-}
+}{
 \renewcommand{\cftsecaftersnum}{.}
 \renewcommand{\cftsubsecaftersnum}{.}
-
+}
 %%% Списки (enumitem)
 
 \usepackage {enumitem}      % Списки с настройкой отступов
