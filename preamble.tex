@@ -13,20 +13,7 @@
 	{fontsize=\small}
 
 % Вставка рисунков
-\usepackage {ifpdf}        % Проверка, генерируется ли PDF
-\ifpdf
-  %
-  \usepackage [pdftex] {graphicx}
-  %
-  \DeclareGraphicsRule {*} {mps} {*} {}
-  %
-\else
-  %
-  \usepackage [draft] {graphicx}
-  %
-  \DeclareGraphicsRule {*} {eps} {*} {}
-  %
-\fi
+\usepackage {graphicx}
 
 % Общее оформление
 \input{core/appearance.tex}
