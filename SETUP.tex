@@ -99,6 +99,16 @@
 % например, здесь (стр. 13):
 % ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
 
+% Нумерация списков: можно при необходимести
+% изменять вид нумерации (например, добавлять правую скобку). 
+% По умолчанию буду списки вида:
+% 1.
+% 2.
+% Изменять вид нумерации можно в начале нумерации:
+% \begin{enumerate}[1)] (В квадратных скобках указан желаемый вид)
+\usepackage[shortlabels]{enumitem}
+                    \setlist[enumerate, 1]{1.}
+
 % Гиперссылки: настройте внешний вид ссылок
 \usepackage%
 [pdftex,unicode,pdfborder=0,draft=false,%backref=page,
