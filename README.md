@@ -11,7 +11,9 @@
 ## Использование
 
 Результат, который можно получить с данным проектом,
-[можно посмотреть здесь](http://mmcs.sfedu.ru/~ulysses/Edu/thesis-template.pdf).
+можно посмотреть здесь:
+
+[]![](https://www.sharelatex.com/github/repos/MMCS-SFEDU/mmcs_sfedu_thesis/builds/latest/badge.svg)](https://www.sharelatex.com/github/repos/MMCS-SFEDU/mmcs_sfedu_thesis)
 
 Чтобы попробовать этот проект на деле, проще всего пойти на сайт [overleaf.com](http://overleaf.com), создать там новый проект (“Create new paper”) и закачать все файлы нашего проекта в этот проект.
 
