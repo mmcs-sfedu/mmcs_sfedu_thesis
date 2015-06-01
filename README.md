@@ -52,7 +52,7 @@
 ## Рекомендации пользователям Windows
 
 1. Скачайте и запустите
-	[установщик](http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe).
+	[установщик TeX Live](http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe).
 
 2. Выберите самый полный вариант установки (Simple install (big) на данный, 
 	2015 г., момент). Она потребует около 4 Гб, но избавит от дополнительных сложностей.
