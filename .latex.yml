@@ -1,2 +1,2 @@
-compiler: xelatex
+compiler: pdflatex
 root_file: main.tex
