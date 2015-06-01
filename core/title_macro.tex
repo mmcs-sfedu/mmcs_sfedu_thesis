@@ -90,8 +90,16 @@
     И. О. Фамилия
     }{}
 	\end{flushright}
+    \ifthenelse{\value{worktype} = 0}{
+    \vspace{\fill}
+            \begin{flushleft}
+              \begin{tabular}{cc}
+                \underline{\hspace{4cm}}&\underline{\hspace{5cm}}\\
+                {\small оценка (рейтинг)} & {\small  подпись руководителя}\\
+              \end{tabular}
+            \end{flushleft}
+    }{}
   	\vspace {\fill}
-
   %Ростов-на-Дону
 
     %\thedate
