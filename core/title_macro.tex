@@ -35,22 +35,17 @@
     \vgap
 
     Федеральное государственное автономное образовательное\\
-    учреждение высшего образования\\
+    учреждение высшего профессионального образования\\
     \MakeTextUppercase {Южный федеральный университет}
 
     \vgap
 
-  Институт математики, механики и компьютерных наук
-    им.~И.\,И.~Воровича
+	Институт математики, механики и компьютерных наук
+    имени~И.\,И.\,Воровича
 
     \vgap
 
     \direction
-
-    \ifthenelse{\boolean{needchair}}{
-    \vgap
-
-    \thechair}{}
 
     \vspace* {\fill}
 
@@ -70,17 +65,19 @@
 
     Курсовая работа
     }{}%
+    \ifthenelse{\value{worktype} = 1 \OR \value{worktype} = 3}{
+     \vgap
+
+    Выпускная квалификационная работа\\
+    на степень бакалавра
+    }{}%
 
     \vspace {\fill}
 
     \begin{flushright}
-    \ifthenelse{\value{worktype} = 1 \OR \value{worktype} = 3}{
-    Выпускная квалификационная работа\\
-    на степень бакалавра%
-   }{}%
-    \ifthenelse{\value{worktype} = 1 \OR \value{worktype} = 0 \OR \value{worktype} = 3}{%
-    \bystudent\\
-    \byme
+    \ifthenelse{\value{worktype} = 1 \OR \value{worktype} = 0}{
+      \bystudent \ifthenelse{\value{worktype} = 0}{3}{4}\ курса\\
+      \byme
     }{}
 
     \vgap
@@ -89,12 +86,11 @@
     \supervisor\\
     \ifthenelse{\value{worktype} = 2}{%
     Рецензент:\\
-    ученая степень, ученое звание [, должность]
+    ученая степень, ученое звание, должность
     И. О. Фамилия
     }{}
-  \end{flushright}
-
-    \vspace {\fill}
+	\end{flushright}
+  	\vspace {\fill}
 
   %Ростов-на-Дону
 
