@@ -41,8 +41,6 @@
 
 %%% Заголовки
 
-
-
 \ifthenelse{\equal{\theworktype}{2}}{%
 \KOMAoptions{%
     numbers=endperiod,% точки после номеров разделов
@@ -72,6 +70,12 @@
 
 \renewcommand*{\captionformat}{~---~}
 \renewcommand*{\figureformat}{Рисунок~\thefigure}
+
+% Плавающие листинги
+\usepackage{float}
+\floatstyle{ruled}
+\floatname{ListingEnv}{Листинг}
+\newfloat{ListingEnv}{htbp}{lol}[section]
 
 %%% Оглавление
 \usepackage{tocloft}

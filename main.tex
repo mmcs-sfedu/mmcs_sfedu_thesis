@@ -11,20 +11,31 @@
 
 \Intro
 
-Здесь вам нужно писать введение. Некоторые часто используемые команды приведены в качестве примера ниже (и варианты — в комментариях).
-
-Your introduction goes here! Some examples of commonly used commands and features are listed below, to help you get started. If you have a question, please use the help menu (``?'') on the top bar to search for help or ask us a question.
+Здесь нужно написать введение.
 
 % Если typeOfWork в SETUP.tex задан как 2 или 3, то начинать
 % надо не с section (раздел), а с главы (chapter)
 \section{Несколько примеров в~\LaTeX{}}
 \label{sec:examples}
 
-\subsection{Как вставлять листинги}
+Некоторые часто используемые
+команды приведены в качестве примера ниже (и варианты — в
+комментариях). Мы рекомендуем внимательно прочесть данный
+текст и изучить его исходный код прежде, чем начинать писать
+свой собственный. Кроме того, можно дать и такой совет: идущий
+ниже текст не убирать до самого конца, а просто оставлять его
+позади своего собственного текста, чтобы в любой момент можно
+было проконсультироваться с данными примерами.
 
-Есть два способа. Первый красивый, но в нём не допускается
+\subsection{Как вставлять листинги и рисунки}
+
+Для крупных листингов есть два способа. Первый красивый, но в нём не допускается
 кириллица (у вас может встречаться в комментариях и
-печатаемых сообщениях).
+печатаемых сообщениях), он представлен на листинге~\ref{list:hwbeauty}.
+\begin{ListingEnv}[H]% буква H означает Here, ставим здесь,
+% элементы, которые нежелательно разрывать обычно не ставят
+% посреди страницы: вместо H используется t (top, сверху страницы),
+% или b (bottom) или p (page, на отдельной странице)
 \begin{lstlisting}
 #include <iostream>
 using namespace std;
@@ -36,9 +47,19 @@ int main()
     return 0;
 }
 \end{lstlisting}
+%следующую команду для генерации подписи можно опустить,
+% хотя рекомендуется все специальные элементы (таблицы, рисунки,
+% листинги) подписывать. Если подпись пропустить, листинг также не получит
+% номера и на него не сошлёшься в будущем
+\caption{Программа “Hello, world” на \protect\cpp}
+% далее метка для ссылки:
+\label{list:hwbeauty}
+\end{ListingEnv}
 
-Второй не такой красивый, но без ограничений.
+Второй не такой красивый, но без ограничений (см.~листинг~\ref{list:hwplain}).
+\begin{ListingEnv}[H]
 \begin{Verb}
+
 #include <iostream>
 using namespace std;
 
@@ -47,21 +68,37 @@ int main()
     cout << "Привет, мир" << endl;
 }
 \end{Verb}
+\caption{Программа “Hello, world” без подсветки}
+\label{list:hwplain}
+\end{ListingEnv}
 
-Можно использовать первый для вставки небольших фрагментов внутри текста, а второй: для вставки полного
-кода в приложении, если таковое предполагается.
+Можно использовать первый для вставки небольших фрагментов
+внутри текста, а второй для вставки полного
+кода в приложении, если таковое имеется.
 
-\subsection{Как вставлять рисунки}
+Если нужно вставить совсем короткий пример кода (одна или две строки), то выделение  линейками и нумерация может смотреться чересчур громоздко. В таких случаях можно использовать окружения \texttt{lstlisting} или \texttt{Verb} без \texttt{ListingEnv}. Приведём такой пример с указанием языка программирования, отличного от заданного по умолчанию:
+\begin{lstlisting}[language=Haskell]
+fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
+\end{lstlisting}
+Такое решение~--- со вставкой нумерованных листингов покрупнее
+и вставок без выделения для маленьких фрагментов~--- выбрано,
+например, в книге Эндрю Таненбаума и Тодда Остина по архитектуре
+компьютера~\autocite{TanAus2013} (см.~рис.~\ref{fig:tan-aus}).
 
-Then use the includegraphics command to include it in your document. Use the figure environment and the caption command to add a number and a caption to your figure. See the code for Figure \ref{fig:frog} in this section for an example.
+Наконец, для оформления идентификаторов внутри строк
+(функция \lstinline{main} и тому подобное) используется
+\texttt{lstinline} или, самое простое, моноширинный текст
+(\texttt{\textbackslash texttt}).
 
-\begin{figure}
+\begin{figure}[p]% p означает, что нужно выделить для рисунка
+% отдельную страницу; применяется для больших рисунков
 \centering
-Здесь могла быть ваша лягушка. %\includegraphics[width=0.3\textwidth]{img/frog.jpg}
-\caption{\label{fig:frog}Лягушка была загружена в overleaf через меню files. Подпись~--- снизу.}
+%Здесь могла быть ваша лягушка.
+\includegraphics[width=\textwidth]{img/tan-aus.png}
+\caption{\label{fig:tan-aus}Пример оформления листингов в~\autocite{TanAus2013}}
 \end{figure}
 
-Использовать внешние файлы (например, рисунки) можно и на \href{http://overleaf.com}{overleaf.com}: ищите кнопочку upload. Обратите внимание, как оформляется гиперссылка в тексте.
+Использовать внешние файлы (например, рисунки) можно и на \href{http://overleaf.com}{overleaf.com}: ищите кнопочку upload.
 
 \subsection{Как оформить таблицу}
 
@@ -69,7 +106,7 @@ Then use the includegraphics command to include it in your document. Use the fig
 
 \begin{table}
 \centering
-\caption{\label{tab:widgets}Подпись к таблице --- сверху.}
+\caption{\label{tab:widgets}Подпись к таблице --- сверху}
 \begin{tabular}{llr}
 \toprule
 \multicolumn{2}{c}{Item} \\
@@ -117,8 +154,6 @@ denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{
 \end{description}
 
 \Conc
-
-We hope you find \LaTeX\ useful, and please let us know if you have any feedback.
 
 Помните, что на все пункты списка литературы должны быть ссылки. \LaTeX\ просто не добавит информацию об издании из bib"/файла, если на это издание нет ссылки в тексте. Часто студенты используют в работе  электронные ресурсы: в этом нет ничего зазорного при одном условии: при каждом заимствовании следует ставить соответствующую ссылку. В качестве примера приведём ссылку на сайт нашего института~\autocite{mmcs}.
 
