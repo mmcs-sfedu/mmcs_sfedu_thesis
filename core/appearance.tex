@@ -77,6 +77,12 @@
 \floatname{ListingEnv}{Листинг}
 \newfloat{ListingEnv}{htbp}{lol}[section]
 
+% точка после номера листинга
+\makeatletter
+\renewcommand\floatc@ruled[2]{{\@fs@cfont #1.} #2\par}
+\makeatother
+
+
 %%% Оглавление
 \usepackage{tocloft}
 
