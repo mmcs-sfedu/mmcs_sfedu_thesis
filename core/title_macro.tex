@@ -47,6 +47,11 @@
 
     \direction
 
+    \ifthenelse{\boolean{needchair}}{
+    \vgap
+
+    \thechair}{}
+
     \vspace* {\fill}
 
     \ifthenelse{\value{worktype} = 2}{%
@@ -75,7 +80,9 @@
     \vspace {\fill}
 
     \begin{flushright}
-    \ifthenelse{\value{worktype} = 1 \OR \value{worktype} = 0}{
+    \ifthenelse{\value{worktype} = 0 \OR 
+                \value{worktype} = 1 \OR
+                \value{worktype} = 3}{
       \bystudent \ifthenelse{\value{worktype} = 0}{3}{4}\ курса\\
       \byme
     }{}
