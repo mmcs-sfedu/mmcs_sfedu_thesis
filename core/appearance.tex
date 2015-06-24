@@ -115,10 +115,11 @@
 
 \ifthenelse{\value{worktype} > 1}{%
     \renewcommand{\cftchapaftersnum}{.}
-}{
+}{}
 \renewcommand{\cftsecaftersnum}{.}
 \renewcommand{\cftsubsecaftersnum}{.}
-}
+\renewcommand{\cftsubsubsecaftersnum}{.}
+
 %%% Списки (enumitem)
 
 \usepackage {enumitem}      % Списки с настройкой отступов
