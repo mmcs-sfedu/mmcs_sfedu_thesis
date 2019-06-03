@@ -8,6 +8,8 @@
 
 работ в [LaTeX](https://ru.wikipedia.org/wiki/LaTeX) на [Мехмате ЮФУ](http://mmcs.sfedu.ru/).
 
+Альтернативный шаблон на базе [`XeLaTeX`](https://github.com/sanyarnd/sfedu-mmcs-latex-thesis-template).
+
 ## Использование
 
 Результат, который можно получить с данным проектом,
